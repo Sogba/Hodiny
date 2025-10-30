@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap');
+@font-face{
+    font-family: "DC";
+    src: url("d7.ttf");
+}
 
 :root{
     margin: 0;
@@ -53,9 +56,10 @@
 .watch{
     display: flex;
     font-size: 12dvw;
-    font-family: "Cutive mono";
+    font-family: "DC";
     font-weight: bold;
     flex-direction: row;
+    gap: 30px;
     flex-shrink: 3;
 
     @media only screen and (orientation: portrait){
@@ -104,6 +108,10 @@
             }
         }
 
+        p{
+            font-size: 1.5rem;
+        }
+
         #timeShiftInput{
             height: 15%;
             width: 90%;
@@ -126,10 +134,12 @@
     top: 2.5%;
     gap: 10px;
     font-size: 20px;
+    z-index: 1;
 
     @media only screen and (orientation: portrait) {
         &{
             width: 94%;
+            height: 85%;
         }
     }
 

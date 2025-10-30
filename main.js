@@ -3,9 +3,7 @@ var timeShift = 0;
 const alert = {
     warning: 1,
     error: 2,
-    information: 3
 }
-
 
 
 function myAlert(message, typeOfAlert) {
@@ -44,8 +42,8 @@ function myAlert(message, typeOfAlert) {
 
     setTimeout(() => {
         alertDiv.style.opacity = 0;
-        setTimeout(() => alertDiv.remove(), 300); // wait for fade-out
-    }, 5000);
+        setTimeout(() => alertDiv.remove(), 300);
+    }, 1500);
     
 }
 
@@ -59,8 +57,10 @@ function changeValue(elementId, newValue){
 function updateClock(){
     var date = new Date();
 
+    date.setMinutes(date.getMinutes() + timeShift);
+
     changeValue("hours", date.getHours());
-    changeValue("minutes", date.getMinutes() + timeShift);
+    changeValue("minutes", date.getMinutes());
     changeValue("seconds", date.getSeconds());
 
     if(date.getHours() == 0)
@@ -85,18 +85,17 @@ function updateTimeShift(){
 
     if(!Number.isInteger(input)){
         document.getElementById("settings").style.visibility="hidden";
-        myAlert("Value in time shift isnt number", alert.error);
+        myAlert("Offset value isnt number", alert.error);
         return;
     }
 
     timeShift = input;
-    myAlert("Time shift has been saved", alert.information)
+    myAlert("Offset has been saved", alert.information)
     document.getElementById("settings").style.visibility="hidden";
 }
 
 function showSettings(){
     document.getElementById("settings").style.visibility="visible";
-    console.log("Something happend")
 }
 
 setDate();
